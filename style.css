@@ -134,7 +134,7 @@ h1 {
 }
 
 .music button {
-  background-color: var(--accent-color);
+  background-color: #00a2ff;
   border: none;
   border-radius: 50%;
   color: var(--text-color);
@@ -145,7 +145,7 @@ h1 {
 }
 
 .music button:hover {
-  background-color: #d9534f;
+  background-color: #9d15db;
 }
 
 .fa-music:before {
