@@ -23,15 +23,16 @@
             <p id="seconds"></p>
         </div>
         <div>
-            <label for="focus-time">Tempo de Foco (m)</label>
+            <label for="focus-time" id="lblFoco">Tempo de Foco (m)</label> <br>
             <input type="number" id="input-focus-time" value="25">
-            <p>Ciclos Concluídos: <span id="cycle-count">0</span></p>
+            <p id="cycle-label">Ciclos Concluídos: <br> <span id="cycle-count">0</span></p>
 
         </div>
         <div class="controls">
             <button onclick="setTimes()" class="start-btn" onclick="start()">Iniciar</button>
             <button class="pause-btn" onclick="pause()">Pausar</button>
             <button class="reset-btn" onclick="reset()">Reiniciar</button>
+
         </div>
         <div class="music">
             <button id="music-btn">
