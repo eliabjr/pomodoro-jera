@@ -2,7 +2,7 @@
 
 let isRunning = false;
 let pomodoro;
-let focusTime = 25;
+let focusTime = 7;
 let breakTime = 5;
 let seconds = focusTime * 60;
 
@@ -15,8 +15,7 @@ let resetBtn = document.getElementById("reset - btn");
 // Onload
 
 window.onload = () => {
-  minutesLabel.innerHTML = focusTime;
-  secondsLabel.innerHTML = "00";
+  updateTimer();
 };
 
 // Functions
@@ -36,11 +35,30 @@ function pause() {
 }
 
 function reset() {
-  console.log("clicou no reset");
+  isRunning = false;
+  clearInterval(pomodoro);
+  seconds = focusTime * 60;
+  updateTimer();
 }
 
 function Timer() {
   seconds--;
-  minutesLabel.innerHTML = parseInt(seconds / 60);
-  secondsLabel.innerHTML = parseInt(seconds % 60);
+  updateTimer();
+}
+
+function updateTimer() {
+  let secondsDisplay = parseInt(seconds % 60);
+  let minutesDisplay = parseInt(seconds / 60);
+
+  if (secondsDisplay < 10) {
+    secondsLabel.innerHTML = "0" + secondsDisplay;
+  } else {
+    secondsLabel.innerHTML = secondsDisplay;
+  }
+
+  if (minutesDisplay < 10) {
+    minutesLabel.innerHTML = "0" + minutesDisplay;
+  } else {
+    minutesLabel.innerHTML = minutesDisplay;
+  }
 }
