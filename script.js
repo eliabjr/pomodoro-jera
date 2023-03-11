@@ -2,8 +2,8 @@
 
 let isRunning = false;
 let pomodoro;
-let focusTime = 25;
-let breakTime = 5;
+let focusTime = 0.1;
+let breakTime = 0.1;
 let seconds = focusTime * 60;
 let isBreakTime = false;
 let cycleCount = 0;
@@ -68,10 +68,24 @@ function Timer() {
       seconds = focusTime * 60;
       cycleCount++;
       cycleCountLabel.innerHTML = cycleCount;
-      notify("Jeradoro", "É hora de voltar ao trabalho. Seu intervalo acabou.");
 
-      if (cycleCount == 4) {
+      if (cycleCount % 4 == 0) {
         breakTime = 10;
+        notify(
+          "Jeradoro",
+          "Você completou 4 ciclos de trabalho. Seu próximo intervalo será mais longo."
+        );
+      } else if (
+        cycleCount % 4 == 1 ||
+        cycleCount % 4 == 2 ||
+        cycleCount % 4 == 3
+      )
+        breakTime = 5;
+      {
+        notify(
+          "Jeradoro",
+          "É hora de voltar ao trabalho. Seu intervalo acabou."
+        );
       }
     }
   }
