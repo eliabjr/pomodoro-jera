@@ -2,15 +2,19 @@
 
 let isRunning = false;
 let pomodoro;
-let focusTime = 7;
-let breakTime = 5;
+let focusTime = 0.1;
+let breakTime = 0.2;
 let seconds = focusTime * 60;
+let isBreakTime = false;
 
 let minutesLabel = document.getElementById("minutes");
 let secondsLabel = document.getElementById("seconds");
 let startBtn = document.getElementById("start-btn");
 let pauseBtn = document.getElementById("pause-btn");
 let resetBtn = document.getElementById("reset - btn");
+
+const breakAudio = new Audio("break.mp3");
+const focusAudio = new Audio("focus.mp3");
 
 // Onload
 
@@ -38,11 +42,23 @@ function reset() {
   isRunning = false;
   clearInterval(pomodoro);
   seconds = focusTime * 60;
+
   updateTimer();
 }
 
 function Timer() {
   seconds--;
+  if (seconds == 0) {
+    if (isBreakTime == false) {
+      breakAudio.play();
+      isBreakTime = true;
+      seconds = breakTime * 60;
+    } else {
+      focusAudio.play();
+      isBreakTime = false;
+      seconds = focusTime * 60;
+    }
+  }
   updateTimer();
 }
 
