@@ -2,8 +2,8 @@
 
 let isRunning = false;
 let pomodoro;
-let focusTime = 0.1;
-let breakTime = 0.2;
+let focusTime = 25;
+let breakTime = 5;
 let seconds = focusTime * 60;
 let isBreakTime = false;
 let cycleCount = 0;
@@ -30,6 +30,7 @@ function start() {
   if (isRunning == false) {
     isRunning = true;
     pomodoro = setInterval(() => Timer(), 1000);
+    notify("Jeradoro", "Hora do Trabalho! Mantenha o foco");
   }
 }
 
@@ -57,16 +58,20 @@ function Timer() {
       breakAudio.play();
       isBreakTime = true;
       seconds = breakTime * 60;
+      notify(
+        "Jeradoro",
+        "Seu tempo de foco acabou. É hora de fazer uma pausa."
+      );
     } else {
       focusAudio.play();
       isBreakTime = false;
       seconds = focusTime * 60;
       cycleCount++;
       cycleCountLabel.innerHTML = cycleCount;
+      notify("Jeradoro", "É hora de voltar ao trabalho. Seu intervalo acabou.");
 
       if (cycleCount == 4) {
         breakTime = 10;
-        cycleCount = 0;
       }
     }
   }
@@ -95,5 +100,25 @@ function updateTimer() {
     minutesLabel.innerHTML = "0" + minutesDisplay;
   } else {
     minutesLabel.innerHTML = minutesDisplay;
+  }
+}
+
+function notify(title, message) {
+  if (!("Notification" in window)) {
+    alert("Este navegador não suporta notificações de desktop.");
+  } else if (Notification.permission === "granted") {
+    new Notification(title, {
+      body: message,
+      icon: "logo.png",
+    });
+  } else if (Notification.permission !== "denied") {
+    Notification.requestPermission().then(function (permission) {
+      if (permission === "granted") {
+        new Notification(title, {
+          body: message,
+          icon: "logo.png",
+        });
+      }
+    });
   }
 }
