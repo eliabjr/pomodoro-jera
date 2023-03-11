@@ -19,7 +19,7 @@ body {
   padding: 0;
 }
 h1 {
-  font-family: "Righteous", cursive;
+  font-family: "Tilt Warp", cursive;
   font-size: 50px;
   color: #ffffff;
 }
@@ -37,7 +37,7 @@ h1 {
 
 /* Estilos para o título */
 h1 {
-  font-size: 2rem;
+  font-size: 50px;
   text-align: center;
 }
 
@@ -63,7 +63,7 @@ h1 {
   font-size: 1.2rem;
   margin-bottom: 0px;
   text-align: center;
-  font-size: 30px;
+  font-size: 23px;
   font-family: "Tilt Warp", cursive;
 }
 #cycle-label {
@@ -81,7 +81,7 @@ h1 {
   border: 2px solid var(--accent-color);
   border-radius: 15px;
   color: var(--text-color);
-  font-size: 40px;
+  font-size: 30px;
   padding: 10px;
   font-family: "Tilt Neon", cursive;
   width: 60px;
