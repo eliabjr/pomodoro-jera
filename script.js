@@ -1,5 +1,7 @@
 // Variáveis
 
+let isRunning = false;
+let pomodoro;
 let focusTime = 25;
 let breakTime = 5;
 let seconds = focusTime * 60;
@@ -20,11 +22,17 @@ window.onload = () => {
 // Functions
 
 function start() {
-  setInterval(() => Timer(), 1000);
+  if (isRunning == false) {
+    isRunning = true;
+    pomodoro = setInterval(() => Timer(), 1000);
+  }
 }
 
 function pause() {
-  console.log("clicou no pause");
+  if (isRunning == true) {
+    isRunning = false;
+    clearInterval(pomodoro);
+  }
 }
 
 function reset() {
@@ -33,7 +41,6 @@ function reset() {
 
 function Timer() {
   seconds--;
-  console.log(seconds);
   minutesLabel.innerHTML = parseInt(seconds / 60);
   secondsLabel.innerHTML = parseInt(seconds % 60);
 }
