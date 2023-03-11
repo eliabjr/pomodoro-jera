@@ -2,6 +2,7 @@
 
 let focusTime = 25;
 let breakTime = 5;
+let seconds = focusTime * 60;
 
 let minutesLabel = document.getElementById("minutes");
 let secondsLabel = document.getElementById("seconds");
@@ -19,7 +20,7 @@ window.onload = () => {
 // Functions
 
 function start() {
-  console.log("clicou no start");
+  setInterval(() => Timer(), 1000);
 }
 
 function pause() {
@@ -28,4 +29,11 @@ function pause() {
 
 function reset() {
   console.log("clicou no reset");
+}
+
+function Timer() {
+  seconds--;
+  console.log(seconds);
+  minutesLabel.innerHTML = parseInt(seconds / 60);
+  secondsLabel.innerHTML = parseInt(seconds % 60);
 }
