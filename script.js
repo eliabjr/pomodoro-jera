@@ -2,8 +2,8 @@
 
 let isRunning = false;
 let pomodoro;
-let focusTime = 0.1;
-let breakTime = 0.1;
+let focusTime = 25;
+let breakTime = 5;
 let seconds = focusTime * 60;
 let isBreakTime = false;
 let cycleCount = 0;
@@ -14,9 +14,11 @@ let startBtn = document.getElementById("start-btn");
 let pauseBtn = document.getElementById("pause-btn");
 let resetBtn = document.getElementById("reset - btn");
 let cycleCountLabel = document.getElementById("cycle-count");
+const musicBtn = document.getElementById("music-btn");
 
-const breakAudio = new Audio("break.mp3");
-const focusAudio = new Audio("focus.mp3");
+const breakAudio = new Audio("audio/break.mp3");
+const focusAudio = new Audio("audio/focus.mp3");
+const music = new Audio("audio/song.mp3");
 
 // Onload
 
@@ -136,3 +138,13 @@ function notify(title, message) {
     });
   }
 }
+
+//Music
+
+musicBtn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+  } else {
+    music.pause();
+  }
+});

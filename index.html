@@ -6,13 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Pomodoro</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <title>Jeradoro</title>
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/27135eef50.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
     <div class="container">
-        <h1>Jera Pomodoro</h1>
+        <h1>Jeradoro</h1>
         <div class="timer">
             <p id="minutes"></p>
             <p>:</p>
@@ -29,6 +33,12 @@
             <button class="pause-btn" onclick="pause()">Pausar</button>
             <button class="reset-btn" onclick="reset()">Reiniciar</button>
         </div>
+        <div class="music">
+            <button id="music-btn">
+                <i class="fa-solid fa-music"></i>
+            </button>
+        </div>
+    </div>
     </div>
     <script src="script.js"></script>
 </body>
