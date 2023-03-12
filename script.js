@@ -125,14 +125,14 @@ function notify(title, message) {
   } else if (Notification.permission === "granted") {
     new Notification(title, {
       body: message,
-      icon: "logo.png",
+      icon: "img/logo.png",
     });
   } else if (Notification.permission !== "denied") {
     Notification.requestPermission().then(function (permission) {
       if (permission === "granted") {
         new Notification(title, {
           body: message,
-          icon: "logo.png",
+          icon: "img/logo.png",
         });
       }
     });
