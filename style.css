@@ -186,3 +186,18 @@ input:focus {
     padding: 10px;
   }
 }
+footer {
+  background-color: var(--background-color);
+  color: rgba(255, 255, 255, 0.767);
+  text-align: center;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  font-family: "Tilt Neon", cursive;
+}
+
+footer:hover {
+  background-color: #000000be;
+}
